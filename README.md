@@ -1,56 +1,66 @@
-﻿# Terraform AWS Infrastructure
+﻿# ☁️ AWS Terraform Infrastructure Portfolio
 
-This repository contains Terraform code for managing and provisioning AWS cloud infrastructure.
+[![Terraform](https://img.shields.io/badge/Terraform-1.5+-623CE4?logo=terraform&logoColor=white)](https://www.terraform.io/)
+[![AWS Provider](https://img.shields.io/badge/AWS-Provider_5.0+-FF9900?logo=amazon-aws&logoColor=white)](https://registry.terraform.io/providers/hashicorp/aws/latest)
+[![Architecture](https://img.shields.io/badge/Architecture-Modular_Multi--Project-blue?logo=awslambda&logoColor=white)](#)
 
-## Prerequisites
+A structured, production-ready collection of AWS Infrastructure as Code (IaC) projects built with Terraform. Each project is fully isolated with dedicated S3 remote state tracking, modular configurations, and automated bootstrapping.
 
-- [Terraform](https://www.terraform.io/downloads.html) (>= 1.5.0)
-- [AWS CLI](https://aws.amazon.com/cli/) (v2) configured with valid IAM credentials
-- [Git](https://git-scm.com/)
+---
 
-## Quick Start
+## 📂 Projects Directory
 
-### 1. AWS Credentials Configuration
-Ensure your AWS credentials are configured locally:
+| # | Project | Description | Status |
+| :---: | :--- | :--- | :---: |
+| **01** | [**Project 1: Automated EC2 Web Server**](./project-1/) | Dynamic AMI lookup, automated RSA key generation, custom security group, and zero-touch Nginx bootstrap via UserData. | **Completed ✅** |
+| **02** | [**Project 2: Production Custom Multi-AZ VPC**](./project-2/) | Fully isolated network with Public/Private subnets across 2 AZs, Internet Gateway, and NAT Gateway. | *Planned 🔜* |
+| **03** | [**Project 3: High Availability & Auto Scaling**](./project-3/) | Application Load Balancer (ALB) + Auto Scaling Group (ASG) across multiple Availability Zones. | *Planned 🔜* |
+| **04** | [**Project 4: Enterprise 3-Tier Web App**](./project-4/) | Public ALB &rarr; Private EC2 Web Tier &rarr; Private RDS (PostgreSQL/MySQL) with Secrets Manager. | *Planned 🔜* |
+| **05** | [**Project 5: Static Site & CloudFront CDN**](./project-5/) | S3 static hosting + CloudFront distribution + Route 53 DNS + ACM SSL certificate. | *Planned 🔜* |
+| **06** | [**Project 6: Containerized Microservices**](./project-6/) | Docker container orchestration on AWS ECS (Fargate) with ALB and ECR. | *Planned 🔜* |
+
+---
+
+## 🛠️ Global Prerequisites
+
+Before running any project:
+1. **Terraform CLI** (>= 1.5.0): `terraform -version`
+2. **AWS CLI** (v2) configured with active credentials:
+   ```bash
+   aws configure
+   aws sts get-caller-identity
+   ```
+3. **S3 State Storage Bucket**: Created in your AWS account (e.g. `terraform-file-0025-12`).
+
+---
+
+## 🚀 How to Run Any Project
+
+Each project directory is completely self-contained. To run Project 1:
+
 ```bash
-aws configure
-```
+# 1. Navigate into the specific project folder
+cd project-1
 
-Verify your identity:
-```bash
-aws sts get-caller-identity
-```
-
-### 2. Initialize Terraform
-Initialize the working directory to download the required AWS provider plugins:
-```bash
+# 2. Initialize Terraform (connects to S3 remote state)
 terraform init
-```
 
-### 3. Plan & Validate
-Preview the execution plan to see what resources will be created, modified, or destroyed:
-```bash
+# 3. Preview execution plan
 terraform plan
+
+# 4. Deploy resources
+terraform apply -auto-approve
 ```
 
-### 4. Apply Changes
-Provision the AWS infrastructure:
+To teardown and avoid AWS billing:
 ```bash
-terraform apply
+terraform destroy -auto-approve
 ```
 
-### 5. Cleanup
-To destroy all provisioned resources:
-```bash
-terraform destroy
-```
+---
 
-## Project Structure
-```text
-.
-├── README.md
-├── main.tf          # Core infrastructure resources
-├── variables.tf     # Input variables
-├── outputs.tf       # Output values
-└── provider.tf      # AWS provider and Terraform backend configurations
-```
+## 🔒 Security Best Practices
+
+- **Zero Hardcoded Secrets**: Sensitive variables use `.tfvars` which are strictly excluded from version control via `.gitignore`.
+- **Isolated State**: Each project maintains its own isolated S3 state key (`dev/terraform.tfstate`, `project-2/terraform.tfstate`), preventing cross-project state corruption.
+- **Private Key Safeguards**: Generated private keys (`*.pem`, `*.key`) are automatically excluded from Git commits.

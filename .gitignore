@@ -32,3 +32,7 @@ terraform.rc
 *.cer
 id_rsa*
 id_ed25519*
+
+# Local learning and project roadmaps (Do not commit)
+PLAN_TO_MASTER_TERRAFORM.md
+*.local.md

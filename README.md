@@ -14,10 +14,10 @@ A structured, production-ready collection of AWS Infrastructure as Code (IaC) pr
 | :---: | :--- | :--- | :---: |
 | **01** | [**Project 1: Automated EC2 Web Server**](./project-1/) | Dynamic AMI lookup, automated RSA key generation, custom security group, and zero-touch Nginx bootstrap via UserData. | **Completed ✅** |
 | **02** | [**Project 2: Production Custom Multi-AZ VPC**](./project-2/) | Fully isolated network with Public/Private subnets across 2 AZs, Internet Gateway, and NAT Gateway. | **Completed ✅** |
-| **03** | [**Project 3: High Availability & Auto Scaling**](./project-3/) | Application Load Balancer (ALB) + Auto Scaling Group (ASG) across multiple Availability Zones. | **Completed ✅** |
-| **04** | [**Project 4: Enterprise 3-Tier Web App**](./project-4/) | Public ALB &rarr; Private EC2 Web Tier &rarr; Private RDS (PostgreSQL/MySQL) with Secrets Manager. | **Completed ✅** |
-| **05** | [**Project 5: Static Site & CloudFront CDN**](./project-5/) | S3 static hosting + CloudFront distribution + Route 53 DNS + ACM SSL certificate. | **Completed ✅** |
-| **06** | [**Project 6: Containerized Microservices**](./project-6/) | Docker container orchestration on AWS ECS (Fargate) with ALB and ECR. | **Completed ✅** |
+| **03** | [**Project 3: High Availability & Auto Scaling**](./project-3/) | Application Load Balancer (ALB) + Auto Scaling Group (ASG) across multiple Availability Zones. | *Planned 🔜* |
+| **04** | [**Project 4: Enterprise 3-Tier Web App**](./project-4/) | Public ALB &rarr; Private EC2 Web Tier &rarr; Private RDS (PostgreSQL/MySQL) with Secrets Manager. | *Planned 🔜* |
+| **05** | [**Project 5: Static Site & CloudFront CDN**](./project-5/) | S3 static hosting + CloudFront distribution + Route 53 DNS + ACM SSL certificate. | *Planned 🔜* |
+| **06** | [**Project 6: Containerized Microservices**](./project-6/) | Docker container orchestration on AWS ECS (Fargate) with ALB and ECR. | *Planned 🔜* |
 
 ---
 
@@ -36,13 +36,13 @@ Before running any project:
 
 ## 🚀 How to Run Any Project
 
-Each project directory is completely self-contained. To run Project 1:
+Each project directory is completely self-contained. To run any project:
 
 ```bash
-# 1. Navigate into the specific project folder
-cd project-1
+# 1. Navigate into the specific project folder (e.g. project-2)
+cd project-2
 
-# 2. Initialize Terraform (connects to S3 remote state)
+# 2. Initialize Terraform (connects to its dedicated S3 remote state)
 terraform init
 
 # 3. Preview execution plan

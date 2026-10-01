@@ -1,4 +1,4 @@
-﻿# ☁️ AWS Terraform Infrastructure Portfolio
+# ☁️ AWS Terraform Infrastructure Portfolio
 
 [![Terraform](https://img.shields.io/badge/Terraform-1.5+-623CE4?logo=terraform&logoColor=white)](https://www.terraform.io/)
 [![AWS Provider](https://img.shields.io/badge/AWS-Provider_5.0+-FF9900?logo=amazon-aws&logoColor=white)](https://registry.terraform.io/providers/hashicorp/aws/latest)
@@ -14,7 +14,7 @@ A structured, production-ready collection of AWS Infrastructure as Code (IaC) pr
 | :---: | :--- | :--- | :---: |
 | **01** | [**Project 1: Automated EC2 Web Server**](./project-1/) | Dynamic AMI lookup, automated RSA key generation, custom security group, and zero-touch Nginx bootstrap via UserData. | **Completed ✅** |
 | **02** | [**Project 2: Production Custom Multi-AZ VPC**](./project-2/) | Fully isolated network with Public/Private subnets across 2 AZs, Internet Gateway, and NAT Gateway. | **Completed ✅** |
-| **03** | [**Project 3: High Availability & Auto Scaling**](./project-3/) | Application Load Balancer (ALB) + Auto Scaling Group (ASG) across multiple Availability Zones. | *Planned 🔜* |
+| **03** | [**Project 3: High Availability & Auto Scaling**](./project-3/) | Application Load Balancer (ALB) + Auto Scaling Group (ASG) across multiple Availability Zones with dynamic traffic-based target tracking. | **Completed ✅** |
 | **04** | [**Project 4: Enterprise 3-Tier Web App**](./project-4/) | Public ALB &rarr; Private EC2 Web Tier &rarr; Private RDS (PostgreSQL/MySQL) with Secrets Manager. | *Planned 🔜* |
 | **05** | [**Project 5: Static Site & CloudFront CDN**](./project-5/) | S3 static hosting + CloudFront distribution + Route 53 DNS + ACM SSL certificate. | *Planned 🔜* |
 | **06** | [**Project 6: Containerized Microservices**](./project-6/) | Docker container orchestration on AWS ECS (Fargate) with ALB and ECR. | *Planned 🔜* |
